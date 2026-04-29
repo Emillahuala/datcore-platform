@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { Plus, Send, ArrowRight } from 'lucide-react'
+import { Plus, Send } from 'lucide-react'
 
 // --- Plantillas de proyecto (PO) ---
 const PO_TEMPLATES = [
@@ -65,10 +64,7 @@ const AREA_TEMPLATES = [
   },
 ]
 
-const AREA_FILTERS = ['Todas las áreas', 'Recursos Humanos (3)', 'Tecnología (4)', 'Legal (2)']
-
 export function POPlantillas() {
-  const [activeFilter, setActiveFilter] = useState('Todas las áreas')
 
   return (
     <div className="flex flex-col gap-16">
@@ -160,70 +156,6 @@ export function POPlantillas() {
         </div>
       </section>
 
-      {/* Plantillas por área */}
-      <section>
-        <h2 className="text-primary text-[2rem] font-bold leading-tight mb-6">Plantillas por área</h2>
-
-        {/* Filters */}
-        <div className="flex flex-wrap gap-2 mb-8 bg-surface-container-low p-2 rounded-lg border border-outline-variant/15">
-          {AREA_FILTERS.map(f => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`text-sm font-medium px-4 py-2 rounded-md transition-colors ${
-                activeFilter === f
-                  ? 'bg-surface-container-lowest text-primary font-bold shadow-ambient-sm border border-outline-variant/15'
-                  : 'text-on-surface-variant hover:text-primary hover:bg-surface-container-highest'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
-
-        {/* Area cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {AREA_TEMPLATES.map(a => (
-            <div
-              key={a.id}
-              className="bg-surface-container-lowest rounded-lg p-6 shadow-ambient border border-outline-variant/15 flex flex-col relative overflow-hidden"
-            >
-              {a.status === 'urgent' && (
-                <div className="absolute top-0 left-0 w-full h-1 bg-tertiary-container" />
-              )}
-              <div className={`flex items-center gap-3 mb-4 pb-4 border-b border-surface-variant`}>
-                <div className={`size-10 rounded-md flex items-center justify-center ${a.status === 'urgent' ? 'bg-tertiary-container/10 text-tertiary-container' : 'bg-primary-container/10 text-primary-container'}`}>
-                  <span className="text-sm font-bold">{a.area.charAt(0)}</span>
-                </div>
-                <div>
-                  <h4 className="text-primary font-bold text-base">{a.area}</h4>
-                  <p className="text-xs text-on-surface-variant uppercase tracking-wider font-bold">{a.count} Plantillas</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 mb-6">
-                {a.items.map(item => (
-                  <div key={item.titulo} className="flex items-start justify-between">
-                    <div className="flex flex-col gap-0.5">
-                      <p className="text-sm font-bold text-on-surface line-clamp-1">{item.titulo}</p>
-                      <p className={`text-xs ${a.status === 'urgent' && item.pct === '0%' ? 'text-tertiary-container font-medium' : 'text-on-surface-variant'}`}>
-                        Encargado: {item.encargado}
-                      </p>
-                    </div>
-                    <span className={`${item.pctStyle} text-[10px] font-bold px-2 py-0.5 rounded uppercase shrink-0 ml-2`}>
-                      {item.pct}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <button className="w-full py-2 text-center text-sm font-bold text-secondary border border-secondary/30 rounded-md hover:bg-secondary/5 transition-colors mt-auto flex items-center justify-center gap-1">
-                Ver detalle área <ArrowRight size={14} />
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   )
 }

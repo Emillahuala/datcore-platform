@@ -7,6 +7,7 @@ const variantClasses: Record<BadgeVariant, string> = {
   product_owner:  'bg-brand-teal/10 text-brand-teal',
   encargado_area: 'bg-neutral-100 text-neutral-600',
   ejecutivo:      'bg-brand-dark/10 text-brand-dark',
+  saas_admin:     'bg-purple-100 text-purple-800',
   success:        'bg-green-100 text-green-700',
   warning:        'bg-brand-teal/10 text-brand-teal',
   danger:         'bg-brand-red/10 text-brand-red',

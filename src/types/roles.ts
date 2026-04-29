@@ -3,6 +3,7 @@ export const ROLES = {
   PRODUCT_OWNER:  'product_owner',
   ENCARGADO_AREA: 'encargado_area',
   EJECUTIVO:      'ejecutivo',
+  SAAS_ADMIN:     'saas_admin',
 } as const
 
 export type Role = typeof ROLES[keyof typeof ROLES]
@@ -12,6 +13,7 @@ export const ROLE_DEFAULT_ROUTES: Record<Role, string> = {
   product_owner:  '/product-owner',
   encargado_area: '/encargado',
   ejecutivo:      '/ejecutivo',
+  saas_admin:     '/saas-admin',
 }
 
 export const ROLE_LABELS: Record<Role, string> = {
@@ -19,6 +21,7 @@ export const ROLE_LABELS: Record<Role, string> = {
   product_owner:  'Product Owner',
   encargado_area: 'Encargado de Área',
   ejecutivo:      'Ejecutivo',
+  saas_admin:     'Administrador SaaS',
 }
 
 export const ESTADOS_PROYECTO = ['Iniciado', 'En diagnóstico', 'En remediación', 'Completado'] as const
