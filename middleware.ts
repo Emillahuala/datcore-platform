@@ -8,11 +8,13 @@ const PROTECTED_ROUTES: Record<string, Role> = {
   '/product-owner': 'product_owner',
   '/encargado':     'encargado_area',
   '/ejecutivo':     'ejecutivo',
+  '/saas-admin':    'saas_admin',
 }
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
+  /* Comentado para desarrollo sin Supabase
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -60,6 +62,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL(fallback, request.url))
     }
   }
+  */
 
   return supabaseResponse
 }

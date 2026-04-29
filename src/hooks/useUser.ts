@@ -5,9 +5,14 @@ import { createClient } from '@/lib/supabase/client'
 import type { AppUser } from '@/types/user'
 
 export function useUser() {
-  const [user, setUser] = useState<AppUser | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState<AppUser | null>({
+    id: '1',
+    email: 'admin@saas.com',
+    user_metadata: { role: 'saas_admin' } as any
+  })
+  const [loading, setLoading] = useState(false)
 
+  /* Comentado para bypass
   useEffect(() => {
     const supabase = createClient()
 
@@ -36,6 +41,7 @@ export function useUser() {
 
     return () => listener.subscription.unsubscribe()
   }, [])
+  */
 
   return { user, loading }
 }

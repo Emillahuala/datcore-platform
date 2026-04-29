@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          navy:  '#1B3A5C',
+          teal:  '#2AADAD',
+          red:   '#D32F2F',
+          dark:  '#1F3864',
+        },
         // Metal shield palette
         'primary':                   '#0C2C5C',
         'primary-container':         '#1C4F8F',

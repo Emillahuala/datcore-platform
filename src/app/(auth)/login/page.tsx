@@ -3,10 +3,11 @@ import { LoginForm } from '@/components/auth/LoginForm'
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex antialiased">
+    <div className="min-h-screen flex flex-col md:flex-row antialiased">
 
       {/* ── Left panel ── */}
-      <div className="hidden md:flex md:w-[46%] bg-primary flex-col justify-between p-10 lg:p-14 relative overflow-hidden">
+      <div className="flex w-full md:w-[45%] flex-col justify-between p-10 lg:p-14 relative overflow-hidden" 
+           style={{ backgroundColor: '#1B3A5C' }}>
 
         {/* Dot-grid SVG pattern */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
@@ -21,12 +22,12 @@ export default function LoginPage() {
         </svg>
 
         {/* Teal radial glow — top right */}
-        <div className="absolute -top-48 -right-48 w-[520px] h-[520px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(46,138,208,0.22) 0%, transparent 68%)' }} />
+        <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none blur-[80px]"
+          style={{ background: 'radial-gradient(circle, rgba(46,138,208,0.45) 0%, transparent 70%)' }} />
 
         {/* Bottom left corner accent */}
-        <div className="absolute bottom-0 left-0 w-64 h-64 pointer-events-none"
-          style={{ background: 'radial-gradient(circle at 0% 100%, rgba(110,207,209,0.12) 0%, transparent 60%)' }} />
+        <div className="absolute -bottom-[10%] -left-[10%] w-[400px] h-[400px] rounded-full pointer-events-none blur-[80px]"
+          style={{ background: 'radial-gradient(circle, rgba(110,207,209,0.35) 0%, transparent 70%)' }} />
 
         {/* ── Logo ── */}
         <div className="relative z-10 animate-fade-in">
@@ -72,7 +73,7 @@ export default function LoginPage() {
       </div>
 
       {/* ── Right panel — Form ── */}
-      <div className="w-full md:w-[54%] flex flex-col justify-center items-center relative"
+      <div className="w-full md:w-[55%] flex flex-col justify-center items-center relative"
         style={{ background: '#E9E9EA' }}>
 
         {/* Subtle grain texture */}

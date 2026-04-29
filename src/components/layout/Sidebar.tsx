@@ -44,6 +44,13 @@ const NAV_ITEMS: Record<Role, NavItem[]> = {
     { href: '/ejecutivo/proyectos', icon: FolderKanban,    label: 'Mis Proyectos' },
     { href: '/ejecutivo/ayuda',     icon: HelpCircle,      label: 'Ayuda' },
   ],
+  saas_admin: [
+    { href: '/saas-admin',                    icon: LayoutDashboard, label: 'Dashboard SaaS' },
+    { href: '/saas-admin/consultoras',        icon: Building2,       label: 'Consultoras' },
+    { href: '/saas-admin/estadisticas',       icon: BarChart3,       label: 'Estadísticas' },
+    { href: '/saas-admin/facturacion',        icon: FileText,        label: 'Facturación' },
+    { href: '/saas-admin/configuracion',      icon: Settings,        label: 'Configuración' },
+  ],
 }
 
 interface SidebarProps {

@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={`${dmSans.className} ${cormorant.variable} antialiased bg-background text-on-background`}>
+    <html lang="es" suppressHydrationWarning>
+      <body className={`${dmSans.className} ${cormorant.variable} antialiased bg-background text-on-background`} suppressHydrationWarning>
         {children}
       </body>
     </html>
