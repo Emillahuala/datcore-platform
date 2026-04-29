@@ -1,0 +1,146 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { MailCheck } from 'lucide-react'
+
+interface Props {
+  searchParams: { email?: string }
+}
+
+export default function ConfirmacionPage({ searchParams }: Props) {
+  const email = searchParams.email ?? 'tu correo'
+  const dm = { fontFamily: '"DM Sans", sans-serif' }
+
+  return (
+    <div className="min-h-screen flex antialiased">
+
+      {/* ── Left panel ── */}
+      <div className="hidden md:flex md:w-[46%] bg-primary flex-col justify-between p-10 lg:p-14 relative overflow-hidden">
+
+        {/* Dot-grid SVG */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+              <circle cx="1.5" cy="1.5" r="1" fill="rgba(110,207,209,0.18)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+          <line x1="-10%" y1="38%" x2="110%" y2="55%" stroke="rgba(46,138,208,0.07)" strokeWidth="1" />
+          <line x1="-10%" y1="62%" x2="110%" y2="79%" stroke="rgba(46,138,208,0.05)" strokeWidth="1" />
+        </svg>
+
+        <div className="absolute -top-48 -right-48 w-[520px] h-[520px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(46,138,208,0.22) 0%, transparent 68%)' }} />
+
+        <div className="absolute bottom-0 left-0 w-64 h-64 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 0% 100%, rgba(110,207,209,0.12) 0%, transparent 60%)' }} />
+
+        {/* Logo */}
+        <div className="relative z-10 animate-fade-in">
+          <Image
+            src="/logo_datcore_shadow.png"
+            alt="DatCore"
+            width={420}
+            height={120}
+            priority
+            className="h-20 w-auto object-contain"
+          />
+        </div>
+
+        {/* Main copy */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-2.5 mb-5 animate-slide-right delay-100">
+            <div className="h-px w-6 bg-secondary" />
+            <span className="text-[0.6rem] font-bold uppercase tracking-[0.25em] text-secondary">
+              Gobierno de Datos · Chile
+            </span>
+          </div>
+          <h2 className="font-sans not-italic text-5xl lg:text-[3.6rem] font-semibold leading-[1.08] mb-6 text-white animate-fade-up delay-150">
+            Protegemos<br />
+            lo que<br />
+            <span style={{ color: '#6ECFD1' }}>importa.</span>
+          </h2>
+          <p className="text-sm text-white/55 leading-relaxed max-w-[280px] animate-fade-up delay-200">
+            Revisa tu bandeja de entrada y sigue el enlace para restablecer tu acceso.
+          </p>
+        </div>
+
+        {/* Footer */}
+        <div className="relative z-10 flex gap-6 text-[0.7rem] text-white/30 animate-fade-in delay-400">
+          <a href="#" className="hover:text-white/60 transition-colors tracking-wide">Privacidad</a>
+          <a href="#" className="hover:text-white/60 transition-colors tracking-wide">Términos</a>
+          <span>© 2026 DatCore</span>
+        </div>
+      </div>
+
+      {/* ── Right panel ── */}
+      <div className="w-full md:w-[54%] flex flex-col justify-center items-center relative"
+        style={{ background: '#E9E9EA' }}>
+
+        {/* Grain texture */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundSize: '180px 180px',
+          }} />
+
+        {/* Mobile logo */}
+        <div className="md:hidden absolute top-8 left-8">
+          <Image
+            src="/logo_datcore_shadow.png"
+            alt="DatCore"
+            width={320}
+            height={96}
+            priority
+            className="h-16 w-auto object-contain"
+          />
+        </div>
+
+        <div className="w-full max-w-[400px] px-8 md:px-0 text-center" style={dm}>
+
+          {/* Icon */}
+          <div className="animate-fade-up flex justify-center mb-8">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center"
+              style={{ background: 'rgba(110,207,209,0.1)', border: '1px solid rgba(110,207,209,0.25)' }}>
+              <MailCheck size={28} style={{ color: '#2E8AD0' }} />
+            </div>
+          </div>
+
+          {/* Heading */}
+          <div className="animate-fade-up delay-100 mb-8">
+            <h1 className="text-[2rem] font-semibold text-primary mb-2 tracking-tight leading-tight">
+              Revisa tu correo
+            </h1>
+            <p className="text-on-surface-variant text-sm leading-relaxed">
+              Enviamos un enlace de recuperación a{' '}
+              <span className="font-semibold text-on-surface">{email}</span>.
+              <br />Sigue las instrucciones para restablecer tu contraseña.
+            </p>
+          </div>
+
+          {/* Actions */}
+          <div className="animate-fade-up delay-200 space-y-3">
+            <Link
+              href="/login"
+              className="btn-shimmer w-full flex justify-center items-center gap-2 py-3.5 px-6 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-secondary to-primary hover:brightness-110 focus:outline-none transition-all shadow-ambient"
+              style={dm}
+            >
+              Volver a iniciar sesión
+            </Link>
+            <Link
+              href="/recuperar-password"
+              className="block text-sm text-on-surface-variant hover:text-secondary transition-colors py-2"
+              style={dm}
+            >
+              ¿Correo incorrecto? Ingresar otro
+            </Link>
+          </div>
+
+          {/* Hint */}
+          <p className="animate-fade-up delay-300 text-xs text-outline/60 mt-8 leading-relaxed" style={dm}>
+            El enlace expira en 30 minutos. Si no recibes el correo, revisa tu carpeta de spam.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}

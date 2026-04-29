@@ -1,19 +1,87 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // Metal shield palette
+        'primary':                   '#0C2C5C',
+        'primary-container':         '#1C4F8F',
+        'primary-fixed':             '#C8CDD4',
+        'primary-fixed-dim':         '#E9E9EA',
+        'on-primary':                '#ffffff',
+        'on-primary-container':      '#E9E9EA',
+        'on-primary-fixed':          '#0F1114',
+        'on-primary-fixed-variant':  '#5A6068',
+        'secondary':                 '#2E8AD0',
+        'secondary-container':       '#6ECFD1',
+        'secondary-fixed':           '#6ECFD1',
+        'secondary-fixed-dim':       '#C8CDD4',
+        'on-secondary':              '#ffffff',
+        'on-secondary-container':    '#0F1114',
+        'on-secondary-fixed':        '#0F1114',
+        'on-secondary-fixed-variant':'#1C4F8F',
+        'tertiary':                  '#8A919A',
+        'tertiary-container':        '#C8CDD4',
+        'tertiary-fixed':            '#C8CDD4',
+        'tertiary-fixed-dim':        '#E9E9EA',
+        'on-tertiary':               '#0F1114',
+        'on-tertiary-container':     '#0F1114',
+        'on-tertiary-fixed':         '#0F1114',
+        'on-tertiary-fixed-variant': '#5A6068',
+        'background':                '#E9E9EA',
+        'surface':                   '#E9E9EA',
+        'surface-bright':            '#E9E9EA',
+        'surface-dim':               '#C8CDD4',
+        'surface-variant':           '#C8CDD4',
+        'surface-tint':              '#1C4F8F',
+        'surface-container-lowest':  '#ffffff',
+        'surface-container-low':     '#F4F5F6',
+        'surface-container':         '#ECEDEF',
+        'surface-container-high':    '#D5D8DE',
+        'surface-container-highest': '#C8CDD4',
+        'on-background':             '#0F1114',
+        'on-surface':                '#0F1114',
+        'on-surface-variant':        '#5A6068',
+        'outline':                   '#8A919A',
+        'outline-variant':           '#C8CDD4',
+        'error':                     '#ba1a1a',
+        'error-container':           '#ffdad6',
+        'on-error':                  '#ffffff',
+        'on-error-container':        '#93000a',
+        'inverse-primary':           '#6ECFD1',
+        'inverse-surface':           '#0C2C5C',
+        'inverse-on-surface':        '#E9E9EA',
+        // Vault palette — login dark panel
+        'vault':                     '#0F1114',
+        'vault-mid':                 '#0C2C5C',
+        'vault-teal':                '#2E8AD0',
+      },
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        md:      '0.5rem',
+        lg:      '0.75rem',
+        xl:      '1rem',
+        full:    '9999px',
+      },
+      fontFamily: {
+        sans:    ['Inter', 'sans-serif'],
+        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        ui:      ['var(--font-syne)', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'ambient':      '0 8px 24px rgba(27,58,92,0.06)',
+        'ambient-md':   '0 8px 24px rgba(27,58,92,0.12)',
+        'ambient-sm':   '0 4px 12px rgba(27,58,92,0.03)',
       },
     },
   },
   plugins: [],
-};
-export default config;
+}
+
+export default config
